@@ -16,49 +16,60 @@
     </div>
   </div> -->
     <div class="login-container" fxLayout="row" fxLayoutAlign="center">
-        <mat-card fxFlex="90%" fxFlex.sm="66%" fxFlex.md="50%" fxFlex.gt-md="33%" class="login-box">
+        <mat-card fxFlex="100%" fxFlex.sm="50%" fxFlex.md="50%" fxFlex.gt-md="33%" class="login-box">
             <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
-                <div fxLayout="column">
-                    <button mat-raised-button color="primary" data-title="Login With FaceBook">
-                        <i class="material-icons">face</i>
-                          <!-- <mat-icon svgIcon="face" aria-hidden="true"></mat-icon> -->
-                          <!-- <a class="mdi mdi-home">Home</a> -->
+                <div style="text-align:center;" fxLayout="column">
+                    <h1 *ngIf="!isSignUp" style="font-size:30px;"><b>Start Learning</b></h1>
+                    <h1 *ngIf="isSignUp" style="font-size:30px;"><b>Challenge Yourself</b></h1>
+                    <h1 *ngIf="isSignUp">Share your knowledge. Make a difference. Build a following.</h1>
+                    <button mat-raised-button style="margin-top:1.2em" class="btn-facebook" (click)="facebookLink($event)" data-title="Login With FaceBook">
+                        <!-- <i class="material-icons">face</i> -->
                           Login With FaceBook
                       </button>
-                    <!-- <button mat-raised-button color="primary" (click)="btnClick($event)" data-title="Login With FaceBook">
-                          <mat-icon svgIcon="google"></mat-icon>
+                    <button mat-raised-button style="margin-top:0.9375em" class="btn-google" (click)="googleLink($event)" data-title="Login With FaceBook">
+                        <!-- <i class="material-icons">face</i> -->
                           Login With Google
                       </button>
-                    <button mat-raised-button color="primary" (click)="btnClick($event)" data-title="Login With FaceBook">
-                          <mat-icon svgIcon="linkedin"></mat-icon>
+                    <button mat-raised-button style="margin-top:0.9375em" class="btn-linkedin" (click)="linkedinLink($event)" data-title="Login With FaceBook">
+                        <!-- <i class="material-icons">face</i> -->
                           Login With LinkeDin
-                      </button> -->
+                      </button>
                 </div>
-                <div class="login-error" [hidden]="!error || isLoading" translate>
+                <h3 class="one"><span>Or</span></h3>
+                <h1 *ngIf="isSignUp" style="text-align:center;font-size:21px;"><b>Signup With Email</b></h1>
+                <div *ngIf="showError" class="login-error" translate>
                     Username or password incorrect.
                 </div>
-                <br/>
                 <div fxLayout="column">
                     <mat-form-field>
-                        <input type="text" matInput formControlName="username" [placeholder]="'Email address:' | translate" />
+                        <b>Email address:</b>
+                        <input style="margin-top:0.9375em" type="text" matInput formControlName="username" />
                         <mat-error *ngIf="loginForm.controls.username.valid || loginForm.controls.username.untouched">
                             <span translate>Email address is required</span>
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field>
-                        <input type="password" matInput formControlName="password" [placeholder]="'Password:' | translate" required/>
+                        <b>Password:</b>
+                        <input style="margin-top:0.9375em" type="password" matInput formControlName="password" required/>
                         <mat-error *ngIf="loginForm.controls.password.valid || loginForm.controls.password.untouched">
                             <span translate>Password is required</span>
                         </mat-error>
                     </mat-form-field>
-                    <mat-slide-toggle color="primary" formControlName="remember" translate>Remember me</mat-slide-toggle>
+                    <mat-slide-toggle *ngIf="!isSignUp" color="primary" formControlName="remember" translate>Remember me</mat-slide-toggle>
                     <br/>
-                    <input type="url" matInput formControlName="forgotlink" [placeholder]="'Forgot password ?' | translate" />
+                    <!-- <input type="url" matInput formControlName="forgotlink" [placeholder]="'Forgot password ?' | translate" /> -->
+                    <a *ngIf="!isSignUp" href="#">Forgot password ?</a>
                     <br/>
-                    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading">
+                    <button *ngIf="!isSignUp" mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading">
             <app-loader class="inline-loader" [isLoading]="isLoading"></app-loader>
             <span translate>Login</span>
           </button>
+                    <button *ngIf="isSignUp" mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading">
+              <app-loader class="inline-loader" [isLoading]="isLoading"></app-loader>
+              <span translate>Signup</span>
+            </button>
+                    <h3 *ngIf="!isSignUp" style="margin-top:10px;text-align:center;">Don't have an account? <a style="color:#007bff;" class="sign-up-link" (click)="openSignUp()">Sign Up</a></h3>
+                    <h3 *ngIf="isSignUp" style="margin-top:10px;text-align:center;">Already have an account? <a style="color:#007bff;" class="sign-up-link" (click)="openSignIn()">Login</a></h3>
                 </div>
             </form>
         </mat-card>

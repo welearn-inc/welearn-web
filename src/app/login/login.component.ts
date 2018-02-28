@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
   error: string;
   loginForm: FormGroup;
   isLoading = false;
+  showError: boolean = false;
+  isSignUp: boolean = true;
 
   constructor(private router: Router,
               private formBuilder: FormBuilder,
@@ -34,6 +36,26 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() { }
 
+  facebookLink(e: any) {
+     console.log("facebook link");
+  }
+
+  googleLink(e: any) {
+    console.log("gmail link");
+  }
+
+  linkedinLink(e: any) {
+    console.log("linkedin link");
+  }
+
+  openSignUp() {
+    this.isSignUp = true;
+  }
+
+  openSignIn() {
+    this.isSignUp = false;
+  }
+
   login() {
     this.isLoading = true;
     this.authenticationService.login(this.loginForm.value)
@@ -45,6 +67,7 @@ export class LoginComponent implements OnInit {
         log.debug(`${credentials.username} successfully logged in`);
         this.router.navigate(['/'], { replaceUrl: true });
       }, error => {
+        this.showError = true;
         log.debug(`Login error: ${error}`);
         this.error = error;
       });
