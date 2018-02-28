@@ -1,5 +1,5 @@
 <div fxFill fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1.5rem" class="mat-typography">
-  <div>
+    <!-- <div>
     <h1 fxLayoutAlign="center" translate>APP_NAME</h1>
     <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="2rem">
       <h4 class="version">v{{version}}</h4>
@@ -14,36 +14,53 @@
         </mat-menu>
       </div>
     </div>
-  </div>
-  <div class="login-container" fxLayout="row" fxLayoutAlign="center">
-    <mat-card fxFlex="90%" fxFlex.sm="66%" fxFlex.md="50%" fxFlex.gt-md="33%" class="login-box">
-      <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
-        <div class="login-error" [hidden]="!error || isLoading" translate>
-          Username or password incorrect.
-        </div>
-        <br/>
-        <div fxLayout="column">
-          <mat-form-field>
-            <input type="text" matInput formControlName="username" [placeholder]="'Username' | translate"/>
-            <mat-error *ngIf="loginForm.controls.username.valid || loginForm.controls.username.untouched">
-              <span translate>Username is required</span>
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <input type="password" matInput formControlName="password" [placeholder]="'Password' | translate" required/>
-            <mat-error *ngIf="loginForm.controls.password.valid || loginForm.controls.password.untouched">
-              <span translate>Password is required</span>
-            </mat-error>
-          </mat-form-field>
-          <mat-slide-toggle color="primary" formControlName="remember" translate>Remember me</mat-slide-toggle>
-          <br/>
-          <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading">
+  </div> -->
+    <div class="login-container" fxLayout="row" fxLayoutAlign="center">
+        <mat-card fxFlex="90%" fxFlex.sm="66%" fxFlex.md="50%" fxFlex.gt-md="33%" class="login-box">
+            <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+                <div fxLayout="column">
+                    <button mat-raised-button color="primary" data-title="Login With FaceBook">
+                        <i class="material-icons">face</i>
+                          <!-- <mat-icon svgIcon="face" aria-hidden="true"></mat-icon> -->
+                          <!-- <a class="mdi mdi-home">Home</a> -->
+                          Login With FaceBook
+                      </button>
+                    <!-- <button mat-raised-button color="primary" (click)="btnClick($event)" data-title="Login With FaceBook">
+                          <mat-icon svgIcon="google"></mat-icon>
+                          Login With Google
+                      </button>
+                    <button mat-raised-button color="primary" (click)="btnClick($event)" data-title="Login With FaceBook">
+                          <mat-icon svgIcon="linkedin"></mat-icon>
+                          Login With LinkeDin
+                      </button> -->
+                </div>
+                <div class="login-error" [hidden]="!error || isLoading" translate>
+                    Username or password incorrect.
+                </div>
+                <br/>
+                <div fxLayout="column">
+                    <mat-form-field>
+                        <input type="text" matInput formControlName="username" [placeholder]="'Email address:' | translate" />
+                        <mat-error *ngIf="loginForm.controls.username.valid || loginForm.controls.username.untouched">
+                            <span translate>Email address is required</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input type="password" matInput formControlName="password" [placeholder]="'Password:' | translate" required/>
+                        <mat-error *ngIf="loginForm.controls.password.valid || loginForm.controls.password.untouched">
+                            <span translate>Password is required</span>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-slide-toggle color="primary" formControlName="remember" translate>Remember me</mat-slide-toggle>
+                    <br/>
+                    <input type="url" matInput formControlName="forgotlink" [placeholder]="'Forgot password ?' | translate" />
+                    <br/>
+                    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading">
             <app-loader class="inline-loader" [isLoading]="isLoading"></app-loader>
             <span translate>Login</span>
           </button>
-        </div>
-      </form>
-    </mat-card>
-  </div>
+                </div>
+            </form>
+        </mat-card>
+    </div>
 </div>
-
