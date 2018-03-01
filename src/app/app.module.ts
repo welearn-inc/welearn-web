@@ -19,6 +19,7 @@ import { LoginModule } from './login/login.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MatIconModule } from '@angular/material';
+import { SignUpModule } from '@app/signup/signup.module';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { MatIconModule } from '@angular/material';
     HomeModule,
     AboutModule,
     LoginModule,
+    SignUpModule,
     AppRoutingModule,
     MatIconModule
   ],

@@ -10,11 +10,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 const log = new Logger('Login');
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'sign-up',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class SignUpComponent implements OnInit {
 
   version: string = environment.version;
   error: string;
@@ -47,8 +47,8 @@ export class LoginComponent implements OnInit {
     console.log("linkedin link");
   }
 
-  openSignUp() {
-    this.router.navigate(['/signup'], { replaceUrl: true });
+  openSignIn() {
+    this.router.navigate(['/login'], { replaceUrl: true });
   }
 
   login() {
