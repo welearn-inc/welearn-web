@@ -4,18 +4,23 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from '@app/material.module';
 import { LoaderComponent } from './loader/loader.component';
+import { NewCourseComponent } from './new-course/new-course.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     FlexLayoutModule,
     MaterialModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   declarations: [
-    LoaderComponent
+    LoaderComponent,
+    NewCourseComponent
   ],
   exports: [
-    LoaderComponent
+    LoaderComponent,
+    NewCourseComponent
   ]
 })
 export class SharedModule { }
