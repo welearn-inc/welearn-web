@@ -1,127 +1,117 @@
 <mat-horizontal-stepper #stepper="matHorizontalStepper">
-    <mat-step [stepControl]="firstFormGroup">
-        <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Course Details</ng-template>
+    <mat-step>
+        <!-- <form [formGroup]="firstFormGroup"> -->
+        <ng-template matStepLabel>Course Details</ng-template>
 
-            <h1 style="font-size:30px;"><b>Create A New Course</b></h1>
-            <p>Once we verify your course, and if you meet the standards, we'll publish it.</p>
-            <br>
-            <hr>
-            <br>
-            <h5>Course Title</h5>
-            <p>Title<sup>*</sup></p>
-            <mat-form-field hintLabel="Max 50 characters">
-                <input matInput #input maxlength="50">
-                <mat-hint align="end">{{input.value?.length || 0}}/50</mat-hint>
-            </mat-form-field>
-            <!-- <mat-form-field>
-                    <input matInput formControlName="titleCtrl" required>
-                    <p>50 character limit</p>
-                </mat-form-field> -->
-            <p>Subtitle<sup>*</sup></p>
-            <mat-form-field>
-                <input matInput formControlName="subTitleCtrl" required>
-                <p>100 character limit</p>
-            </mat-form-field>
-            <p>Topic<sup>*</sup></p>
-            <mat-form-field>
-                <mat-select formControlName="topicCtrl" [(value)]="selected">
-                    <mat-option *ngFor="let topic of topics" [value]="topic.value">
-                        {{ topic.viewValue }}
-                    </mat-option>
-                    <!-- <mat-option>None</mat-option>
-                        <mat-option value="angular 2">Angular 2</mat-option>
-                        <mat-option value="java">Java</mat-option>
-                        <mat-option value="swift">Swift</mat-option> -->
-                </mat-select>
-            </mat-form-field>
-            <p>Tags<sup>*</sup></p>
-            <mat-form-field>
-                <input matInput placeholder="Seperate tags with comma's" formControlName="tagsCtrl" required>
-            </mat-form-field>
+        <h1 style="font-size:30px;"><b>Create A New Course</b></h1>
+        <p>Once we verify your course, and if you meet the standards, we'll publish it.</p>
+        <br>
+        <hr>
+        <br>
+        <h5>Course Title</h5>
+        <p>Title<sup>*</sup></p>
+        <mat-form-field hintLabel="Max 50 characters">
+            <input matInput #input maxlength="50" required>
+        </mat-form-field>
+        <p>Subtitle<sup>*</sup></p>
+        <mat-form-field hintLabel="Max 100 characters">
+            <input matInput #input maxlength="100" required>
+        </mat-form-field>
+        <p>Topic<sup>*</sup></p>
+        <mat-form-field>
+            <mat-select>
+                <mat-option *ngFor="let topic of topics" [value]="topic.value">
+                    {{ topic.viewValue }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <p>Tags<sup>*</sup></p>
+        <mat-form-field>
+            <input matInput placeholder="Seperate tags with comma's" required>
+        </mat-form-field>
 
-            <br>
-            <hr>
-            <br>
-            <h5>The Basics</h5>
-            <p>Pricing<sup>*</sup></p>
-            <mat-form-field>
-                <mat-select formControlName="pricingCtrl" [(value)]="selected">
-                    <mat-option *ngFor="let topic of topics" [value]="topic.value">
-                        {{ topic.viewValue }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <p>Language<sup>*</sup></p>
-            <mat-form-field>
-                <mat-select formControlName="langCtrl" [(value)]="selected">
-                    <mat-option *ngFor="let topic of topics" [value]="topic.value">
-                        {{ topic.viewValue }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <p>Level<sup>*</sup></p>
-            <mat-form-field>
-                <mat-select formControlName="levelCtrl" [(value)]="selected">
-                    <mat-option *ngFor="let topic of topics" [value]="topic.value">
-                        {{ topic.viewValue }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
+        <br>
+        <hr>
+        <br>
+        <h5>The Basics</h5>
+        <p>Pricing<sup>*</sup></p>
+        <mat-form-field>
+            <mat-select>
+                <mat-option *ngFor="let topic of topics" [value]="topic.value">
+                    {{ topic.viewValue }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <p>Language<sup>*</sup></p>
+        <mat-form-field>
+            <mat-select>
+                <mat-option *ngFor="let topic of topics" [value]="topic.value">
+                    {{ topic.viewValue }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <p>Level<sup>*</sup></p>
+        <mat-form-field>
+            <mat-select>
+                <mat-option *ngFor="let topic of topics" [value]="topic.value">
+                    {{ topic.viewValue }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
 
-            <br>
-            <hr>
-            <br>
-            <h5>Course Details</h5>
-            <p>Title<sup>*</sup></p>
-            <mat-form-field>
-                <textarea formControlName="courseTitleCtrl" matInput></textarea>
-                <!-- <textarea formControlName="courseTitleCtrl" matInput matTextareaAutosize matAutosizeMinRows="4" matAutosizeMaxRows="7"></textarea> -->
-            </mat-form-field>
-            <p>In english only, no html, no web or email address, no CAPS</p>
-            <p>Goals<sup>*</sup></p>
-            <p>maximum of 8</p>
-            <mat-form-field>
-                <mat-select formControlName="goalCtrl" [(value)]="selected">
-                    <mat-option *ngFor="let topic of topics" [value]="topic.value">
-                        {{ topic.viewValue }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <p>Course Benefits<sup>*</sup></p>
-            <mat-form-field>
-                <mat-select formControlName="benefitCtrl" [(value)]="selected">
-                    <mat-option *ngFor="let topic of topics" [value]="topic.value">
-                        {{ topic.viewValue }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
+        <br>
+        <hr>
+        <br>
+        <h5>Course Details</h5>
+        <p>Title<sup>*</sup></p>
+        <mat-form-field>
+            <textarea matInput></textarea>
+            <!-- <textarea formControlName="courseTitleCtrl" matInput matTextareaAutosize matAutosizeMinRows="4" matAutosizeMaxRows="7"></textarea> -->
+        </mat-form-field>
+        <p>In english only, no html, no web or email address, no CAPS</p>
+        <p>Goals<sup>*</sup></p>
+        <p>maximum of 8</p>
+        <mat-form-field>
+            <mat-select>
+                <mat-option *ngFor="let topic of topics" [value]="topic.value">
+                    {{ topic.viewValue }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <p>Course Benefits<sup>*</sup></p>
+        <mat-form-field>
+            <mat-select>
+                <mat-option *ngFor="let topic of topics" [value]="topic.value">
+                    {{ topic.viewValue }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
 
-            <br>
-            <h5>Upload</h5>
-            <p>Upload an image or video to represent your course.<sup>*</sup></p>
-            <p>Image File<sup>*</sup></p>
-            <p>Video File<sup>*</sup></p>
+        <br>
+        <h5>Upload</h5>
+        <p>Upload an image or video to represent your course.<sup>*</sup></p>
+        <p>Image File<sup>*</sup></p>
+        <p>Video File<sup>*</sup></p>
 
-            <br>
-            <hr>
-            <br>
-            <p>SAVE & CONTINUE LATER</p>
-            <button mat-button matStepperNext>Next Step</button>
+        <br>
+        <hr>
+        <br>
+        <p>SAVE & CONTINUE LATER</p>
+        <button mat-button matStepperNext>Next Step</button>
 
-        </form>
+        <!-- </form> -->
     </mat-step>
     <mat-step>
-        <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>Instructor Information</ng-template>
-            <mat-form-field>
-                <input matInput placeholder="Instructor name" formControlName="secondCtrl" required>
-            </mat-form-field>
-            <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button matStepperNext>Next</button>
-            </div>
-        </form>
+        <!-- <form [formGroup]="secondFormGroup"> -->
+        <ng-template matStepLabel>Instructor Information</ng-template>
+        <mat-form-field>
+            <input matInput placeholder="Instructor name" required>
+        </mat-form-field>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+        </div>
+        <!-- </form> -->
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Module Information</ng-template>

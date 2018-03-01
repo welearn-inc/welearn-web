@@ -10,9 +10,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 
 export class NewCourseComponent implements OnInit {
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  topics = [
+  // firstFormGroup: FormGroup;
+  // secondFormGroup: FormGroup;
+  public topics = [
     {value: 'steak-0', viewValue: 'Steak'},
     {value: 'pizza-1', viewValue: 'Pizza'},
     {value: 'tacos-2', viewValue: 'Tacos'}
@@ -23,35 +23,25 @@ export class NewCourseComponent implements OnInit {
     sanitizer: DomSanitizer) {
     iconRegistry.addSvgIconSetInNamespace
         ( "action", sanitizer.bypassSecurityTrustResourceUrl("assets/svg-icons/svg-sprite-action.svg"));
-        this.newCourseForm();
+        // this.newCourseForm();
    }
 
   ngOnInit() {
-    // this.firstFormGroup = new FormGroup({
-    //   name: new FormGroup({ 
-    //     firstName: new FormControl(), 
-    //     lastName: new FormControl(),
-    // }),
-    // email: new FormControl(),
-    // password: new FormControl(),
-    // language: new FormControl()
-
-    // });
   }
 
-  private newCourseForm() {
-    this.firstFormGroup = this._formBuilder.group({
-      titleCtrl: ['', Validators.required],
-      subTitleCtrl: ['', Validators.required],
-      topicCtrl: ['', Validators.required],
-      tagsCtrl: ['', Validators.required],
-      pricingCtrl: ['', Validators.required],
-      langCtrl: ['', Validators.required],
-      levelCtrl: ['', Validators.required],
-      courseTitleCtrl: ['', Validators.required],
-      goalCtrl: ['', Validators.required],
-      benefitCtrl: ['', Validators.required]
-    });
-  }
+  // private newCourseForm() {
+  //   this.firstFormGroup = this._formBuilder.group({
+  //     titleCtrl: ['', Validators.required],
+  //     subTitleCtrl: ['', Validators.required],
+  //     topicCtrl: ['', Validators.required],
+  //     tagsCtrl: ['', Validators.required],
+  //     pricingCtrl: ['', Validators.required],
+  //     langCtrl: ['', Validators.required],
+  //     levelCtrl: ['', Validators.required],
+  //     courseTitleCtrl: ['', Validators.required],
+  //     goalCtrl: ['', Validators.required],
+  //     benefitCtrl: ['', Validators.required]
+  //   });
+  // }
 
 }
