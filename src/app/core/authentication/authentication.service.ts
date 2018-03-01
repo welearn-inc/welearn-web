@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
+import {BackendService} from "../services/backend/backend.service";
 
 export interface Credentials {
   // Customize received credentials here
@@ -25,7 +26,7 @@ export class AuthenticationService {
 
   private _credentials: Credentials | null;
 
-  constructor() {
+  constructor(private backendService: BackendService) {
     const savedCredentials = sessionStorage.getItem(credentialsKey) || localStorage.getItem(credentialsKey);
     if (savedCredentials) {
       this._credentials = JSON.parse(savedCredentials);
@@ -37,14 +38,10 @@ export class AuthenticationService {
    * @param {LoginContext} context The login parameters.
    * @return {Observable<Credentials>} The user credentials.
    */
-  login(context: LoginContext): Observable<Credentials> {
-    // Replace by proper authentication call
-    const data = {
-      username: context.username,
-      token: '123456'
-    };
-    this.setCredentials(data, context.remember);
-    return of(data);
+  login(context: LoginContext): Observable<any> {
+    
+     
+    return this.backendService.post ("/rest-auth/login/", context);
   }
 
   /**
@@ -73,6 +70,10 @@ export class AuthenticationService {
     return this._credentials;
   }
 
+
+  updateAuthUser (authData: any){
+    sessionStorage.setItem ("auth", authData);
+  }
   /**
    * Sets the user credentials.
    * The credentials may be persisted across sessions by setting the `remember` parameter to true.
