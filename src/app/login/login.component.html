@@ -20,15 +20,15 @@
             <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
                 <div style="text-align:center;" fxLayout="column">
                     <h1 style="font-size:30px;"><b>Start Learning</b></h1>
-                    <button mat-raised-button style="margin-top:1.2em" class="btn-facebook" (click)="facebookLink($event)" data-title="Login With FaceBook">
+                    <button mat-raised-button style="margin-top:1.2em" class="btn btn-facebook btn-general" (click)="facebookLink($event)" data-title="Login With FaceBook">
                         <!-- <i class="material-icons">face</i> -->
                           Login With Facebook
                       </button>
-                    <button mat-raised-button style="margin-top:0.9375em" class="btn-google" (click)="googleLink($event)" data-title="Login With FaceBook">
+                    <button mat-raised-button style="margin-top:0.9375em" class="btn btn-google btn-general" (click)="googleLink($event)" data-title="Login With FaceBook">
                         <!-- <i class="material-icons">face</i> -->
                           Login With Google
                       </button>
-                    <button mat-raised-button style="margin-top:0.9375em" class="btn-linkedin" (click)="linkedinLink($event)" data-title="Login With FaceBook">
+                    <button mat-raised-button style="margin-top:0.9375em" class="btn btn-linkedin btn-general" (click)="linkedinLink($event)" data-title="Login With FaceBook">
                         <!-- <i class="material-icons">face</i> -->
                           Login With Linkedin
                       </button>
@@ -60,7 +60,7 @@
             <app-loader class="inline-loader" [isLoading]="isLoading"></app-loader>
             <span translate>Login</span>
           </button>
-                    <h3 style="margin-top:10px;text-align:center;">Don't have an account? <a style="color:#007bff;" class="sign-up-link" (click)="openSignUp()">Sign Up</a></h3>
+                    <h3 style="margin-top:10px;text-align:center;">Don't have an account? <a style="cursor:pointer; color:#0275d8;" class="sign-up-link" (click)="openSignUp()">Sign Up</a></h3>
                 </div>
             </form>
         </mat-card>
