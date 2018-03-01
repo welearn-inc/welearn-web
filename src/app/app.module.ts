@@ -18,6 +18,7 @@ import { AboutModule } from './about/about.module';
 import { LoginModule } from './login/login.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { MatIconModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { AppRoutingModule } from './app-routing.module';
     HomeModule,
     AboutModule,
     LoginModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatIconModule
   ],
   declarations: [AppComponent],
   providers: [
