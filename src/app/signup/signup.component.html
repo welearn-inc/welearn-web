@@ -1,49 +1,70 @@
-<div fxFill fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1.5rem" class="mat-typography">
-    <div class="login-container" fxLayout="row" fxLayoutAlign="center">
-        <mat-card fxFlex="100%" fxFlex.sm="50%" fxFlex.md="50%" fxFlex.gt-md="50%" class="login-box">
-            <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
-                <div style="text-align:center;" fxLayout="column">
-                    <h1 style="font-size:30px;"><b>Challenge Yourself</b></h1>
-                    <h1>Share your knowledge. Make a difference. Build a following.</h1>
-                    <button mat-raised-button style="margin-top:1.2em" class="btn btn-facebook btn-general" (click)="facebookLink($event)" data-title="Login With FaceBook">
+<div fxFill fxLayout="row" fxLayoutAlign="center" class="mat-typography">
+    <div class="login-container" fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%">
+        <mat-card   class="login-box" fxLayout="column" fxLayoutGap="5px">
+                     <h1 fxLayoutAlign="center" > Challenge Yourself </h1>
+                    <h3 fxLayoutAlign="center" >Share your knowledge. Make a difference. Build a following.</h3>
+                    <button *ngIf="enableFacebook" mat-raised-button class="btn btn-facebook btn-general" (click)="facebookLink($event)" data-title="Login With FaceBook">
                             <!-- <i class="material-icons">face</i> -->
-                              Login With Facebook
+                              Signup With Facebook
                           </button>
-                    <button mat-raised-button style="margin-top:0.9375em" class="btn btn-google btn-general" (click)="googleLink($event)" data-title="Login With FaceBook">
+                    <button *ngIf="enableGoogle" mat-raised-button  class="btn btn-google btn-general" (click)="googleLink($event)" data-title="Login With FaceBook">
                             <!-- <i class="material-icons">face</i> -->
-                              Login With Google
+                            Signup With Google
                           </button>
-                    <button mat-raised-button style="margin-top:0.9375em" class="btn btn-linkedin btn-general" (click)="linkedinLink($event)" data-title="Login With FaceBook">
+                    <button *ngIf="enableLinkedin" mat-raised-button  class="btn btn-linkedin btn-general" (click)="linkedinLink($event)" data-title="Login With FaceBook">
                             <!-- <i class="material-icons">face</i> -->
-                              Login With Linkedin
+                            Signup With Linkedin
                           </button>
+               
+                <h3 class="one"  *ngIf="enableLinkedin || enableGoogle || enableFacebook"><span>Or</span></h3>
+                <div fxLayoutAlign="center" *ngIf="showError" class="login-error" translate>
+                    {{error}}
                 </div>
-                <h3 class="one"><span>Or</span></h3>
-                <h1 style="text-align:center;font-size:21px;"><b>Signup With Email</b></h1>
-                <div *ngIf="showError" class="login-error" translate>
-                    Username or password incorrect.
-                </div>
+
+
+                <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+           
                 <div fxLayout="column">
+                        <h1 fxLayoutAlign="center">Signup With Email </h1>
+              
+
+                        <mat-form-field>
+                                <label>Name:</label>
+                            <input  type="text" matInput formControlName="name"   required />
+                            <mat-error *ngIf="loginForm.controls.name.valid || loginForm.controls.name.untouched">
+                                <span translate>Name is required</span>
+                            </mat-error>
+                        </mat-form-field>
+
                     <mat-form-field>
-                        <b>Email address:</b>
-                        <input style="margin-top:0.9375em" type="text" matInput formControlName="username" />
+                            <label>Email:</label>
+                        <input  type="text" matInput formControlName="username"   required />
                         <mat-error *ngIf="loginForm.controls.username.valid || loginForm.controls.username.untouched">
                             <span translate>Email address is required</span>
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field>
-                        <b>Password:</b>
-                        <input style="margin-top:0.9375em" type="password" matInput formControlName="password" required/>
+                        <label>Password:</label>
+                        <input   type="password" matInput formControlName="password" required />
                         <mat-error *ngIf="loginForm.controls.password.valid || loginForm.controls.password.untouched">
                             <span translate>Password is required</span>
                         </mat-error>
                     </mat-form-field>
-                    <br/>
-                    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading">
+
+                    <mat-form-field>
+                            <label>Confirm Password:</label>
+                            <input   type="password" matInput formControlName="confirmpassword" required />
+                            <mat-error *ngIf="loginForm.controls.confirmpassword.valid || loginForm.controls.confirmpassword.untouched">
+                                <span translate>Confirm Password is required</span>
+                            </mat-error>
+                        </mat-form-field>
+                        
+                    
+                <button (click)="signup()" mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading">
                   <app-loader class="inline-loader" [isLoading]="isLoading"></app-loader>
                   <span translate>Signup</span>
                 </button>
-                    <h3 style="margin-top:10px;text-align:center;">Already have an account? <a style="cursor:pointer; color:#0275d8;" class="sign-up-link" (click)="openSignIn()">Login</a></h3>
+                    <h3 fxLayoutAlign="center">Already have an account? <a style="cursor:pointer; color:#0275d8;" class="sign-up-link" (click)="openSignIn()">Login</a></h3>
                 </div>
             </form>
         </mat-card>

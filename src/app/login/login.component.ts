@@ -8,6 +8,8 @@ import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
  
 import {LoginContext}  from "@app/core";
+const log = new Logger('Login');
+
 
 @Component({
   selector: 'app-login',
@@ -36,18 +38,19 @@ export class LoginComponent implements OnInit {
     this.createForm();
   }
 
-  ngOnInit() { }
-
-  facebookLink(e: any) {
-    log.debug("facebook link");
+  ngOnInit() { 
+    this.enableGoogle =  this.authenticationService.isSocialEnabled ("facebook");
+    this.enableFacebook =  this.authenticationService.isSocialEnabled ("google");
+    this.enableLinkedin =  this.authenticationService.isSocialEnabled ("linkedin");
   }
 
-  googleLink(e: any) {
-    log.debug("gmail link");
+  facebookLink(e: any) { 
   }
 
-  linkedinLink(e: any) {
-    log.debug("linkedin link");
+  googleLink(e: any) { 
+  }
+
+  linkedinLink(e: any) { 
   }
 
   openSignUp() {
@@ -66,7 +69,7 @@ export class LoginComponent implements OnInit {
         this.isLoading = false;
       }))
       .subscribe(res => {
-          console.log ("here is rescponse from login ", res);
+        //  console.log ("here is rescponse from login ", res);
           if (res.token){
             //it worked..
             this.authenticationService.updateAuthUser (res);
