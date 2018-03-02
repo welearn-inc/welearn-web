@@ -24,7 +24,7 @@
                       </button>
                 
                 <h3 class="one" *ngIf="enableLinkedin || enableGoogle || enableFacebook"><span>Or</span></h3>
-                <div *ngIf="showError" class="login-error" translate>
+                <div fxLayoutAlign="center" *ngIf="showError" class="login-error" translate>
                     {{error}}
                 </div>
                

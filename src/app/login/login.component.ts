@@ -6,8 +6,8 @@ import { environment } from '@env/environment';
 import { Logger, I18nService, AuthenticationService } from '@app/core';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
-
-const log = new Logger('Login');
+ 
+import {LoginContext}  from "@app/core";
 
 @Component({
   selector: 'app-login',
@@ -56,17 +56,29 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.isLoading = true;
-    this.authenticationService.login(this.loginForm.value)
+    let credentials = {
+      username: this.loginForm.controls.username.value,
+      password: this.loginForm.controls.password.value 
+    }; 
+    this.authenticationService.login(credentials)
       .pipe(finalize(() => {
         this.loginForm.markAsPristine();
         this.isLoading = false;
       }))
-      .subscribe(credentials => {
-        log.debug(`${credentials.username} successfully logged in`);
-        this.router.navigate(['/'], { replaceUrl: true });
+      .subscribe(res => {
+          console.log ("here is rescponse from login ", res);
+          if (res.token){
+            //it worked..
+            this.authenticationService.updateAuthUser (res);
+            this.router.navigate(['/'], { replaceUrl: true });
+          }else{
+            this.error = "Invalid credentials";
+            this.showError = true;
+          }
+       
       }, error => {
         this.showError = true;
-        log.debug(`Login error: ${error}`);
+        
         this.error = error;
       });
   }
