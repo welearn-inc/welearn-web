@@ -21,6 +21,9 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isLoading = false;
   showError: boolean = false;
+  enableGoogle: boolean = false;
+  enableFacebook: boolean = false;
+  enableLinkedin: boolean = false;
 
   constructor(private router: Router,
               private formBuilder: FormBuilder,
@@ -36,15 +39,15 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
 
   facebookLink(e: any) {
-     console.log("facebook link");
+    log.debug("facebook link");
   }
 
   googleLink(e: any) {
-    console.log("gmail link");
+    log.debug("gmail link");
   }
 
   linkedinLink(e: any) {
-    console.log("linkedin link");
+    log.debug("linkedin link");
   }
 
   openSignUp() {
