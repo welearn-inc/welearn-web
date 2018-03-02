@@ -101,7 +101,7 @@ export class AuthenticationService {
   }
 
   isSocialEnabled (socialName: any){
-    return true;
+    return false;
   }
 
   isValidEmail (email: any){

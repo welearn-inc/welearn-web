@@ -1,6 +1,6 @@
 <div fxFill fxLayout="row" fxLayoutAlign="center" class="mat-typography">
     <div class="login-container" fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%">
-        <mat-card   class="login-box" fxLayout="column" fxLayoutGap="5px">
+        <mat-card  class="login-box" fxLayout="column" fxLayoutGap="5px">
                      <h1 fxLayoutAlign="center" > Challenge Yourself </h1>
                     <h3 fxLayoutAlign="center" >Share your knowledge. Make a difference. Build a following.</h3>
                     <button *ngIf="enableFacebook" mat-raised-button class="btn btn-facebook btn-general" (click)="facebookLink($event)" data-title="Login With FaceBook">
@@ -22,7 +22,7 @@
                 </div>
 
 
-                <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+                <form (ngSubmit)="signup()" [formGroup]="signupForm" novalidate>
            
                 <div fxLayout="column">
                         <h1 fxLayoutAlign="center">Signup With Email </h1>
@@ -31,7 +31,7 @@
                         <mat-form-field>
                                 <label>Name:</label>
                             <input  type="text" matInput formControlName="name"   required />
-                            <mat-error *ngIf="loginForm.controls.name.valid || loginForm.controls.name.untouched">
+                            <mat-error *ngIf="signupForm.controls.name.valid || signupForm.controls.name.untouched">
                                 <span translate>Name is required</span>
                             </mat-error>
                         </mat-form-field>
@@ -39,14 +39,14 @@
                     <mat-form-field>
                             <label>Email:</label>
                         <input  type="text" matInput formControlName="username"   required />
-                        <mat-error *ngIf="loginForm.controls.username.valid || loginForm.controls.username.untouched">
+                        <mat-error *ngIf="signupForm.controls.username.valid || signupForm.controls.username.untouched">
                             <span translate>Email address is required</span>
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field>
                         <label>Password:</label>
                         <input   type="password" matInput formControlName="password" required />
-                        <mat-error *ngIf="loginForm.controls.password.valid || loginForm.controls.password.untouched">
+                        <mat-error *ngIf="signupForm.controls.password.valid || signupForm.controls.password.untouched">
                             <span translate>Password is required</span>
                         </mat-error>
                     </mat-form-field>
@@ -54,17 +54,18 @@
                     <mat-form-field>
                             <label>Confirm Password:</label>
                             <input   type="password" matInput formControlName="confirmpassword" required />
-                            <mat-error *ngIf="loginForm.controls.confirmpassword.valid || loginForm.controls.confirmpassword.untouched">
+                            <mat-error *ngIf="signupForm.controls.confirmpassword.valid || signupForm.controls.confirmpassword.untouched">
                                 <span translate>Confirm Password is required</span>
                             </mat-error>
                         </mat-form-field>
                         
                     
-                <button (click)="signup()" mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading">
+                <button   mat-raised-button color="primary" type="submit" [disabled]="signupForm.invalid || isLoading">
                   <app-loader class="inline-loader" [isLoading]="isLoading"></app-loader>
                   <span translate>Signup</span>
                 </button>
-                    <h3 fxLayoutAlign="center">Already have an account? <a style="cursor:pointer; color:#0275d8;" class="sign-up-link" (click)="openSignIn()">Login</a></h3>
+                    <h3 fxLayoutAlign="center">
+                            Already have an account?  &nbsp; <a class="sign-up-link" (click)="openSignIn()"> Login</a></h3>
                 </div>
             </form>
         </mat-card>

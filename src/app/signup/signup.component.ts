@@ -18,7 +18,7 @@ export class SignUpComponent implements OnInit {
 
   version: string = environment.version;
   error: string;
-  loginForm: FormGroup;
+  signupForm: FormGroup;
   isLoading = false;
   showError: boolean = false;
 
@@ -58,15 +58,15 @@ export class SignUpComponent implements OnInit {
   }
 
   signup() {
-    if (!this.loginForm.valid){
+    if (!this.signupForm.valid){
       return;
     }
     this.showError = false;
     let credential = {
-      name: this.loginForm.controls.name.value,
-      username: this.loginForm.controls.username.value,
-      password1: this.loginForm.controls.password.value,
-      password2: this.loginForm.controls.confirmpassword.value
+      name: this.signupForm.controls.name.value,
+      username: this.signupForm.controls.username.value,
+      password1: this.signupForm.controls.password.value,
+      password2: this.signupForm.controls.confirmpassword.value
     };
 
     
@@ -86,7 +86,7 @@ export class SignUpComponent implements OnInit {
 
     this.authenticationService.register (credential)
       .pipe(finalize(() => {
-        this.loginForm.markAsPristine();
+        this.signupForm.markAsPristine();
         this.isLoading = false;
       }))
       .subscribe(credentials => {
@@ -113,7 +113,7 @@ export class SignUpComponent implements OnInit {
   }
 
   private createForm() {
-    this.loginForm = this.formBuilder.group({
+    this.signupForm = this.formBuilder.group({
       name: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', Validators.required],
