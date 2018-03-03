@@ -81,8 +81,8 @@ export class LoginComponent implements OnInit {
        
       }, error => {
         this.showError = true;
-        
-        this.error = error;
+        console.log ("here is errr", error);
+        this.error = error.error ? error.error.detail: ( error.message || "Invalid credentials");
       });
   }
 

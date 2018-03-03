@@ -96,7 +96,7 @@ export class SignUpComponent implements OnInit {
       }, error => {
         this.showError = true;
         logger.debug(`Login error: ${error}`);
-        this.error = error;
+        this.error = error.error ? error.error.detail:  error.message;
       });
   }
 
