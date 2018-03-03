@@ -1,35 +1,8 @@
 <div fxFill fxLayout="row" fxLayoutAlign="center" class="mat-typography">
     <div fxFlex="100%" fxLayout="column" fxFlex.xs="100%" fxFlex.sm="100%"  fxLayoutGap="10px">
-        <mat-card fxLayout="row">
-            <div fxFlex="50%" fxLayout="row" class="mat-typography" fxLayoutGap="10px">
-                <!-- <img src="smiley.gif" alt="WelearnTV" fxFlex="20%" fxFlexAlign="center"> -->
-                <h3 fxFlex="20%" fxFlexAlign="center">WelearnTV</h3>
-                <h3 fxFlex="20%" fxFlexAlign="center"> Course Catalog</h3>
-                <!-- <button fxFlex="20%" fxFlexAlign="center" mat-raised-button (click)="courseCatalog($event)" 
-                data-title="Course Catalog">
-                        <i class="material-icons">face</i>
-                        Course Catalog
-                </button> -->
-                <div fxFlex="40%" fxFlexAlign="center">
-                    <div class="input-group pull-left">
-                        <input id="search" type="search" size="30" ng-model="search.$" placeholder="Find course" aria-describedby="basic-addon1" class="form-control">
-                            <span id="basic-addon1" style="background:#94B8FF; color:white" class="input-group-addon">
-                                <i class="material-icons">search</i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div fxFlex="50%" fxLayout="row" fxLayoutAlign="end" class="mat-typography" fxLayoutGap="10px">
-                <h3 fxFlex="20%" fxFlexAlign="center">Create a Course</h3>
-                <div fxFlex="10%" fxFlexAlign="center">
-                    <span><i class="material-icons">shopping_cart</i></span>
-                </div>
-                <div fxFlex="10%" fxFlexAlign="center">
-                        <img src="assets/ngx-rocket-logo.png" height="25" width="35" alt="Name" fxFlex="30%" fxFlexAlign="center">
-                        <h3>Scott</h3>
-                </div>
-            </div>
-        </mat-card>
+        <div >
+            <app-header></app-header>
+        </div>
         <div fxFill fxLayout="row" fxLayoutAlign="center" class="mat-typography">
     
                 <div class="login-container"   fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%">
