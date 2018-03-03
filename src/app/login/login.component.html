@@ -1,69 +1,76 @@
 <div fxFill fxLayout="row" fxLayoutAlign="center" class="mat-typography">
+    <div fxFlex="100%" fxLayout="column" fxFlex.xs="100%" fxFlex.sm="100%" fxLayoutGap="10px">
+        <div>
+            <app-header></app-header>
+        </div>
+        <div fxFill fxLayout="row" fxLayoutAlign="center" class="mat-typography">
 
-    <div class="login-container" fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%">
-        <mat-card class="login-box" fxLayout="column" fxLayoutGap="10px">
+            <div class="login-container" fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%">
+                <mat-card class="login-box" fxLayout="column" fxLayoutGap="10px">
 
-            <h1 fxLayoutAlign="center">Start Learning</h1>
+                    <h1 fxLayoutAlign="center">Start Learning</h1>
 
 
-            <button *ngIf="enableFacebook" mat-raised-button class="btn btn-facebook btn-general" (click)="facebookLink($event)" data-title="Login With FaceBook">
-                        <!-- <i class="material-icons">face</i> -->
-                          Login With Facebook
-                      </button>
-            <button *ngIf="enableGoogle" mat-raised-button class="btn btn-google btn-general" (click)="googleLink($event)" data-title="Login With Google">
-                        <!-- <i class="material-icons">face</i> -->
-                          Login With Google
-                      </button>
-            <button *ngIf="enableLinkedin" mat-raised-button class="btn btn-linkedin btn-general" (click)="linkedinLink($event)" data-title="Login With Linkedin">
-                        <!-- <i class="material-icons">face</i> -->
-                          Login With Linkedin
-                      </button>
+                    <button *ngIf="enableFacebook" mat-raised-button class="btn btn-facebook btn-general" (click)="facebookLink($event)" data-title="Login With FaceBook">
+                                <!-- <i class="material-icons">face</i> -->
+                                  Login With Facebook
+                              </button>
+                    <button *ngIf="enableGoogle" mat-raised-button class="btn btn-google btn-general" (click)="googleLink($event)" data-title="Login With Google">
+                                <!-- <i class="material-icons">face</i> -->
+                                  Login With Google
+                              </button>
+                    <button *ngIf="enableLinkedin" mat-raised-button class="btn btn-linkedin btn-general" (click)="linkedinLink($event)" data-title="Login With Linkedin">
+                                <!-- <i class="material-icons">face</i> -->
+                                  Login With Linkedin
+                              </button>
 
-            <h3 class="one" *ngIf="enableLinkedin || enableGoogle || enableFacebook"><span>Or</span></h3>
-            <div fxLayoutAlign="center" *ngIf="showError" class="login-error" translate>
-                {{error}}
+                    <h3 class="one" *ngIf="enableLinkedin || enableGoogle || enableFacebook"><span>Or</span></h3>
+                    <div fxLayoutAlign="center" *ngIf="showError" class="login-error" translate>
+                        {{error}}
+                    </div>
+
+                    <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+                        <div fxLayout="column" fxLayoutGap="20px">
+
+
+                            <mat-form-field>
+                                <label>Username:</label>
+                                <input type="text" matInput formControlName="username" />
+                                <mat-error *ngIf="loginForm.controls.username.valid || loginForm.controls.username.untouched">
+                                    <span translate>Email address is required</span>
+                                </mat-error>
+                            </mat-form-field>
+
+
+                            <mat-form-field>
+                                <label>Password: </label>
+                                <input type="password" matInput formControlName="password" required/>
+                                <mat-error *ngIf="loginForm.controls.password.valid || loginForm.controls.password.untouched">
+                                    <span translate>Password is required</span>
+                                </mat-error>
+                            </mat-form-field>
+
+                            <mat-slide-toggle color="primary" formControlName="remember" translate>Remember me</mat-slide-toggle>
+
+                            <a href="#">Forgot password ?</a>
+
+
+                            <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading">
+                                    <app-loader class="inline-loader" [isLoading]="isLoading"></app-loader>
+                                    <span translate>Login</span>
+                                </button>
+
+
+                        </div>
+
+                    </form>
+
+                    <h3 flexLayoutAlign="center">Don't have an account?
+                        <a class="sign-in-link" (click)="openSignUp()">Sign Up</a></h3>
+
+
+                </mat-card>
             </div>
-
-            <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
-                <div fxLayout="column" fxLayoutGap="20px">
-
-
-                    <mat-form-field>
-                        <label>Username:</label>
-                        <input type="text" matInput formControlName="username" />
-                        <mat-error *ngIf="loginForm.controls.username.valid || loginForm.controls.username.untouched">
-                            <span translate>Email address is required</span>
-                        </mat-error>
-                    </mat-form-field>
-
-
-                    <mat-form-field>
-                        <label>Password: </label>
-                        <input type="password" matInput formControlName="password" required/>
-                        <mat-error *ngIf="loginForm.controls.password.valid || loginForm.controls.password.untouched">
-                            <span translate>Password is required</span>
-                        </mat-error>
-                    </mat-form-field>
-
-                    <mat-slide-toggle color="primary" formControlName="remember" translate>Remember me</mat-slide-toggle>
-
-                    <a href="#">Forgot password ?</a>
-
-
-                    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading">
-                            <app-loader class="inline-loader" [isLoading]="isLoading"></app-loader>
-                            <span translate>Login</span>
-                        </button>
-
-
-                </div>
-
-            </form>
-
-            <h3 flexLayoutAlign="center">Don't have an account?
-                <a class="sign-in-link" (click)="openSignUp()">Sign Up</a></h3>
-
-
-        </mat-card>
+        </div>
     </div>
 </div>

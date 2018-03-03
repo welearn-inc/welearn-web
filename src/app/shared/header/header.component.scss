@@ -13,8 +13,13 @@
     margin: 0;
 }
 
-.login-container {}
+.login-container {
+    
+}
 
+.container{
+    display: flex;
+}
 .mat-form-field {
     width: 100%;
 }
@@ -100,28 +105,22 @@ h3 {
     border-radius: .25rem;
     transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
-
-.sign-in-link {
-    cursor: pointer;
-    color: #0275d8;
+.sign-in-link{
+    cursor:pointer; 
+    color:#0275d8;
 }
 
 .pull-left {
     float: left!important;
 }
-
 .input-group {
     position: relative;
     display: table;
     border-collapse: separate;
 }
-
-.input-group .form-control,
-.input-group-addon,
-.input-group-btn {
+.input-group .form-control, .input-group-addon, .input-group-btn {
     display: table-cell;
 }
-
 .input-group .form-control {
     position: relative;
     z-index: 2;
@@ -140,9 +139,7 @@ h3 {
     background-color: #eee;
     border-radius: 4px;
 }
-
-.input-group-addon,
-.input-group-btn {
+.input-group-addon, .input-group-btn {
     width: 1%;
     white-space: nowrap;
     vertical-align: middle;
@@ -158,10 +155,9 @@ h3 {
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
-
 .form-control {
     border-color: #e4e5e7!important;
 }

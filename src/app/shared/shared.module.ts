@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@app/material.module';
 import { LoaderComponent } from './loader/loader.component';
 import { NewCourseComponent } from './new-course/new-course.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { ModuleInfoComponent } from './module-info/module-info.component';
+import { HeaderComponent } from './header/header.component';
+import { TranslateModule } from '@ngx-translate/core';
+
+
 
 @NgModule({
   imports: [
@@ -18,12 +21,14 @@ import { ModuleInfoComponent } from './module-info/module-info.component';
   declarations: [
     LoaderComponent,
     NewCourseComponent,
-    ModuleInfoComponent
+    ModuleInfoComponent,
+    HeaderComponent
   ],
   exports: [
     LoaderComponent,
     NewCourseComponent,
-    ModuleInfoComponent
+    ModuleInfoComponent,
+    HeaderComponent
   ]
 })
 export class SharedModule { }
