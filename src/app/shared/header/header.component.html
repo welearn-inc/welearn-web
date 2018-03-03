@@ -1,29 +1,44 @@
  
 <div fxLayout="row" class="container">
 
-
-    <div fxFlex   fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="2px">
+        <div fxFlex fxHide fxShow.lt-md fxFlex  fxLayout="row" fxLayoutAlign="start center">
       
+        
+                <div    class="tool-item">
+                        <button  class="menu-button" mat-icon-button>
+                                <mat-icon>menu</mat-icon>
+                                
+                        </button>
+                </div>
 
-            <div fxShow="isMobile" fxFlex="isMobile" class="tool-item">
-                    <button  class="menu-button" mat-icon-button>
-                            <mat-icon>menu</mat-icon>
-                            <img src="assets/logo.png" 
-                            alt="WeLearn"  
-                           fxFlexAlign="center">
-                    </button>
-            </div>
+                <div    class="tool-item"> 
+                <img src="assets/logo.png" 
+                alt="WeLearn"  
+                fxFlexAlign="center">
+                </div>
+                <div fxFlex   class="tool-item"> 
+                              
+                                </div>
 
-        <div fxHide="isMobile"  fxLayoutAlign="center center" class="tool-item">
+        </div>
+
+
+
+    <div fxHide fxShow.gt-sm fxFlex  fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="2px">
+      
+        
+            
+
+        <div   fxLayoutAlign="center center" class="tool-item">
                 <img src="assets/logo.png" 
                  alt="WeLearn"  
                 fxFlexAlign="center">
         </div>
        
-        <div  fxHide="isMobile" fxLayoutAlign="center center" class="tool-item">
+        <div   fxLayoutAlign="center center" class="tool-item">
                 <i class="material-icons md-48">view_module</i>&nbsp;Course Catalog
         </div>
-        <div fxHide="isMobile" fxFlex fxLayoutAlign="center center" class="tool-item">
+        <div   fxFlex fxLayoutAlign="center center" class="tool-item">
             
                 <mat-form-field>
                     <input type="text" matInput />
@@ -36,7 +51,7 @@
     </div>
 
 
-    <div fxHide="isMobile" fxFlex  fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="2px">
+    <div fxHide fxShow.gt-sm fxFlex  fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="2px">
             <div fxFlex class="tool-item">&nbsp;</div>
         <div fxLayoutAlign="center center"  class="tool-item">Create a Course</div>
         <div fxLayoutAlign="center center"  class="tool-item">

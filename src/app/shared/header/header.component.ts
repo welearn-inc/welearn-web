@@ -16,8 +16,11 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  get isMobile(): boolean {
-    return this.media.isActive('xs') || this.media.isActive('sm');
+  isMobile(): boolean {
+    console.log ("hre is mobile...");
+    let ans =  this.media.isActive('xs') || this.media.isActive('sm');
+    console.log ("here is answer for mobile ..", ans);
+    return ans;
   }
 
 
