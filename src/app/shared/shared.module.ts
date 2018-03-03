@@ -6,6 +6,7 @@ import { MaterialModule } from '@app/material.module';
 import { LoaderComponent } from './loader/loader.component';
 import { NewCourseComponent } from './new-course/new-course.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ModuleInfoComponent } from './module-info/module-info.component';
 
 @NgModule({
   imports: [
@@ -16,11 +17,13 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   declarations: [
     LoaderComponent,
-    NewCourseComponent
+    NewCourseComponent,
+    ModuleInfoComponent
   ],
   exports: [
     LoaderComponent,
-    NewCourseComponent
+    NewCourseComponent,
+    ModuleInfoComponent
   ]
 })
 export class SharedModule { }

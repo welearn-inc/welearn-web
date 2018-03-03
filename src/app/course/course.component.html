@@ -1,0 +1,29 @@
+<div fxFill fxLayout="row" fxLayoutAlign="center" class="mat-typography">
+    <div class="course-container" fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%">
+
+        <mat-horizontal-stepper #stepper="matHorizontalStepper">
+            <mat-step>
+                <ng-template matStepLabel>Course Details</ng-template>
+                <app-new-course></app-new-course>
+            </mat-step>
+            <mat-step>
+                <!-- <form [formGroup]="secondFormGroup"> -->
+                <ng-template matStepLabel>Instructor Information</ng-template>
+                <mat-form-field>
+                    <input matInput required>
+                    <!-- placeholder="Instructor name" -->
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+                <!-- </form> -->
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Module Information</ng-template>
+
+                <app-module-info></app-module-info>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </div>
+</div>

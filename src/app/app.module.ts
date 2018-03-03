@@ -21,6 +21,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MatIconModule } from '@angular/material';
 import { SignUpModule } from '@app/signup/signup.module';
+import { CourseModule } from '@app/course/course.module';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BackendService } from './core/services/backend/backend.service';
@@ -43,6 +44,7 @@ import { InterceptorService } from './core/services/interceptor/interceptor.serv
     AboutModule,
     LoginModule,
     SignUpModule,
+    CourseModule,
     AppRoutingModule,
     MatIconModule
   ],

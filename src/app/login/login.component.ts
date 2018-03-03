@@ -58,32 +58,33 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.isLoading = true;
-    let credentials = {
-      username: this.loginForm.controls.username.value,
-      password: this.loginForm.controls.password.value 
-    }; 
-    this.authenticationService.login(credentials)
-      .pipe(finalize(() => {
-        this.loginForm.markAsPristine();
-        this.isLoading = false;
-      }))
-      .subscribe(res => {
-        //  console.log ("here is rescponse from login ", res);
-          if (res.token){
-            //it worked..
-            this.authenticationService.updateAuthUser (res);
-            this.router.navigate(['/'], { replaceUrl: true });
-          }else{
-            this.error = "Invalid credentials";
-            this.showError = true;
-          }
+    this.router.navigate(['/course'], { replaceUrl: true });
+    // this.isLoading = true;
+    // let credentials = {
+    //   username: this.loginForm.controls.username.value,
+    //   password: this.loginForm.controls.password.value 
+    // }; 
+    // this.authenticationService.login(credentials)
+    //   .pipe(finalize(() => {
+    //     this.loginForm.markAsPristine();
+    //     this.isLoading = false;
+    //   }))
+    //   .subscribe(res => {
+    //     //  console.log ("here is rescponse from login ", res);
+    //       if (res.token){
+    //         //it worked..
+    //         this.authenticationService.updateAuthUser (res);
+    //         this.router.navigate(['/'], { replaceUrl: true });
+    //       }else{
+    //         this.error = "Invalid credentials";
+    //         this.showError = true;
+    //       }
        
-      }, error => {
-        this.showError = true;
-        
-        this.error = error;
-      });
+    //   }, error => {
+    //     this.showError = true;
+    //     console.log ("here is errr", error);
+    //     this.error = error.error ? error.error.detail: ( error.message || "Invalid credentials");
+    //   });
   }
 
   setLanguage(language: string) {

@@ -1,0 +1,42 @@
+<h1 style="font-size:30px;"><b>Module Information</b></h1>
+<p>Add your course modules here.</p>
+<br>
+<mat-card class="module-box" fxLayout="column" fxLayoutGap="10px">
+    <h1>Personal Information</h1>
+    <mat-form-field>
+        Title
+        <input matInput #input maxlength="50" required>
+    </mat-form-field>
+    <mat-form-field>
+        Description
+        <textarea matInput></textarea>
+    </mat-form-field>
+    <p>In english only, no html, no web or email address, no CAPS</p>
+    <mat-radio-group class="example-radio-group">
+        Content Type
+        <mat-radio-button class="example-radio-button" *ngFor="let type of c_types" [value]="type">
+            {{type}}
+        </mat-radio-button>
+    </mat-radio-group>
+    <br>
+    <p>REMOVE MODULE</p>
+</mat-card>
+<mat-card class="new-module-box" fxLayout="column" fxLayoutGap="10px">
+    <p>ADD NEW MODULE</p>
+</mat-card>
+<hr>
+<!-- <div>
+    <button mat-button matStepperPrevious>Back</button>
+    <button mat-button (click)="stepper.reset()">Reset</button>
+</div> -->
+<div fxLayout="row" fxLayoutGap="10px">
+    <div fxLayout="row" fxFlex="50%" fxLayoutAlign="end">
+        <button class="next-button" mat-raised-button matStepperNext>Previous Step</button>
+    </div>
+    <div fxLayout="row" fxFlex="50%">
+        <p>SAVE & CONTINUE LATER</p>
+    </div>
+    <div fxLayout="row" fxFlex="50%" fxLayoutAlign="end">
+        <button class="next-button" mat-raised-button matStepperNext>Publish</button>
+    </div>
+</div>
