@@ -2,25 +2,22 @@
 
     <b>Create A New Course</b></h1>
 <p>Once we verify your course, and if you meet the standards, we'll publish it.</p>
-<br>
+
 <hr>
-<br>
+
 <div fxLayout="column" fxLayoutGap="5px">
     <h3><b>Course Title</b></h3>
-    <!-- <p>Title<sup>*</sup></p> -->
     Title
     <mat-form-field intLabel="Max 50 characters">
 
         <input matInput #input maxlength="50" required>
     </mat-form-field>
-    <!-- <p>Subtitle<sup>*</sup></p> -->
     Subtitle
     <mat-form-field hintLabel="Max 100 characters">
 
         <input matInput #input maxlength="100" required>
     </mat-form-field>
     <div fxLayout="row" fxLayoutGap="10px">
-        <!-- <p>Topic<sup>*</sup></p> -->
         <mat-form-field>
             Topic
             <mat-select>
@@ -29,7 +26,6 @@
                 </mat-option>
             </mat-select>
         </mat-form-field>
-        <!-- <p>Tags<sup>*</sup></p> -->
         <mat-form-field>
             Tags
             <input matInput required>
@@ -37,55 +33,48 @@
         </mat-form-field>
     </div>
 </div>
-
-<br>
 <hr>
-<br>
 <h3><b>The Basics</b></h3>
-<div fxLayout="row" fxLayoutGap="20px">
-    <!-- <p>Pricing<sup>*</sup></p> -->
-    <mat-form-field>
-        Pricing
-        <mat-select>
-            <mat-option *ngFor="let topic of topics" [value]="topic.value">
-                {{ topic.viewValue }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-    <!-- <p>Language<sup>*</sup></p> -->
-    <mat-form-field>
-        Language
-        <mat-select>
-            <mat-option *ngFor="let topic of topics" [value]="topic.value">
-                {{ topic.viewValue }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-    <!-- <p>Level<sup>*</sup></p> -->
-    <mat-form-field>
-        Level
-        <mat-select>
-            <mat-option *ngFor="let topic of topics" [value]="topic.value">
-                {{ topic.viewValue }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+<div fxLayout="row" fxLayoutGap="5px">
+    <div fxLayout="row" fxFlex="35%" fxFlex.xs="100%" fxFlex.sm="100%" fxLayoutAlign="start">
+        <mat-form-field>
+            Pricing
+            <mat-select>
+                <mat-option *ngFor="let topic of topics" [value]="topic.value">
+                    {{ topic.viewValue }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" fxFlex="35%" fxFlex.xs="100%" fxFlex.sm="100%" fxLayoutAlign="center">
+        <mat-form-field>
+            Language
+            <mat-select>
+                <mat-option *ngFor="let topic of topics" [value]="topic.value">
+                    {{ topic.viewValue }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" fxFlex="30%" fxFlex.xs="100%" fxFlex.sm="100%" fxLayoutAlign="end">
+        <mat-form-field>
+            Level
+            <mat-select>
+                <mat-option *ngFor="let topic of topics" [value]="topic.value">
+                    {{ topic.viewValue }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
 </div>
-
-<br>
 <hr>
-<br>
 <div fxLayout="column" fxLayoutGap="10px">
     <h3><b>Course Details</b></h3>
-    <!-- <p>Title<sup>*</sup></p> -->
     <mat-form-field>
         Title
         <textarea matInput></textarea>
-        <!-- <textarea formControlName="courseTitleCtrl" matInput matTextareaAutosize matAutosizeMinRows="4" matAutosizeMaxRows="7"></textarea> -->
     </mat-form-field>
     <p>In english only, no html, no web or email address, no CAPS</p>
-    <!-- <p>Goals<sup>*</sup></p> -->
-    <!-- <p>maximum of 8</p> -->
     <mat-form-field>
         Goals
         <p>maximum of 8</p>
@@ -95,7 +84,6 @@
             </mat-option>
         </mat-select>
     </mat-form-field>
-    <!-- <p>Course Benefits<sup>*</sup></p> -->
     <mat-form-field>
         Course Benefits
         <p>maximum of 8</p>
@@ -103,17 +91,9 @@
             <input matInput>
             <button mat-raised-button color="primary"> + </button>
         </div>
-        <!-- <mat-select>
-                            <mat-option *ngFor="let topic of topics" [value]="topic.value">
-                                {{ topic.viewValue }}
-                            </mat-option>
-                        </mat-select> -->
     </mat-form-field>
 </div>
-<br>
 <hr>
-<br>
-
 <h2><b>Upload</b></h2>
 <p>Upload an image or video to represent your course.<sup>*</sup></p>
 <div fxLayout="row" fxLayoutGap="10px">
@@ -124,16 +104,12 @@
         <p>Video File</p>
     </div>
 </div>
-
-<br>
 <hr>
-<br>
 <div fxLayout="row" fxLayoutGap="10px">
     <div fxLayout="row" fxFlex="50%">
-        <p>SAVE & CONTINUE LATER</p>
+        <button mat-button color="primary">SAVE & CONTINUE LATER</button>
     </div>
     <div fxLayout="row" fxFlex="50%" fxLayoutAlign="end">
         <button class="next-button" mat-raised-button matStepperNext>Next Step</button>
     </div>
-    <!-- <button mat-button matStepperNext>Next Step</button> -->
 </div>

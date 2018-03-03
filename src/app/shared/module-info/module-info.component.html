@@ -1,6 +1,6 @@
 <h1 style="font-size:30px;"><b>Module Information</b></h1>
 <p>Add your course modules here.</p>
-<br>
+
 <mat-card class="module-box" fxLayout="column" fxLayoutGap="10px">
     <h1>Personal Information</h1>
     <mat-form-field>
@@ -18,10 +18,10 @@
             {{type}}
         </mat-radio-button>
     </mat-radio-group>
-    <br>
+
     <p>REMOVE MODULE</p>
 </mat-card>
-<mat-card class="new-module-box" fxLayout="column" fxLayoutGap="10px">
+<mat-card class="module-box" fxLayout="column" fxLayoutGap="10px">
     <p>ADD NEW MODULE</p>
 </mat-card>
 <hr>
@@ -29,14 +29,14 @@
     <button mat-button matStepperPrevious>Back</button>
     <button mat-button (click)="stepper.reset()">Reset</button>
 </div> -->
-<div fxLayout="row" fxLayoutGap="10px">
-    <div fxLayout="row" fxFlex="50%" fxLayoutAlign="end">
-        <button class="next-button" mat-raised-button matStepperNext>Previous Step</button>
+<div fxLayout="row" fxLayoutGap="5px">
+    <div fxLayout="row" fxFlex="30%" fxLayoutAlign="end">
+        <button class="next-button" mat-raised-button matStepperPrevious>Previous Step</button>
     </div>
-    <div fxLayout="row" fxFlex="50%">
-        <p>SAVE & CONTINUE LATER</p>
+    <div fxLayout="row" fxFlex="50%" fxLayoutAlign="center">
+        <button mat-button color="primary">SAVE & CONTINUE LATER</button>
     </div>
-    <div fxLayout="row" fxFlex="50%" fxLayoutAlign="end">
+    <div fxLayout="row" fxFlex="20%" fxLayoutAlign="end">
         <button class="next-button" mat-raised-button matStepperNext>Publish</button>
     </div>
 </div>
