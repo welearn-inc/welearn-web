@@ -1,4 +1,4 @@
-<div fxFill fxLayout="row" fxLayoutAlign="center" class="mat-typography">
+<!--<div fxFill fxLayout="row" fxLayoutAlign="center" class="mat-typography">
     
     <div class="login-container"   fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%">
         <mat-card class="login-box" fxLayout="column" fxLayoutGap="10px">
@@ -7,19 +7,19 @@
                      
 
                 <button *ngIf="enableFacebook" mat-raised-button   class="btn btn-facebook btn-general" (click)="facebookLink($event)" 
-                        data-title="Login With FaceBook">
-                    <!-- <i class="material-icons">face</i> -->
-                      Login With Facebook
+                        data-title="Login With FaceBook">-->
+<!-- <i class="material-icons">face</i> -->
+<!--Login With Facebook
                   </button>
                 <button *ngIf="enableGoogle" mat-raised-button  class="btn btn-google btn-general" (click)="googleLink($event)"
-                 data-title="Login With Google">
-                    <!-- <i class="material-icons">face</i> -->
-                      Login With Google
+                 data-title="Login With Google">-->
+<!-- <i class="material-icons">face</i> -->
+<!--Login With Google
                   </button>
                 <button *ngIf="enableLinkedin" mat-raised-button   class="btn btn-linkedin btn-general" 
-                (click)="linkedinLink($event)" data-title="Login With Linkedin">
-                    <!-- <i class="material-icons">face</i> -->
-                      Login With Linkedin
+                (click)="linkedinLink($event)" data-title="Login With Linkedin">-->
+<!-- <i class="material-icons">face</i> -->
+<!--Login With Linkedin
                   </button>
             
             <h3 class="one" *ngIf="enableLinkedin || enableGoogle || enableFacebook"><span>Or</span></h3>
@@ -69,5 +69,13 @@
             
 
         </mat-card>
+    </div>
+</div>-->
+
+
+<div fxFill fxLayout="row" fxLayoutAlign="center" class="mat-typography">
+
+    <div class="login-container" fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="100%">
+        <app-instructor-profile></app-instructor-profile>
     </div>
 </div>

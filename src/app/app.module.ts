@@ -26,6 +26,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BackendService } from './core/services/backend/backend.service';
 
 import { InterceptorService } from './core/services/interceptor/interceptor.service';
+import { InstructorProfileComponent } from './instructor-profile/instructor-profile.component';
 
 @NgModule({
   imports: [
@@ -46,7 +47,7 @@ import { InterceptorService } from './core/services/interceptor/interceptor.serv
     AppRoutingModule,
     MatIconModule
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, InstructorProfileComponent],
   providers: [
     Keyboard,
     StatusBar,

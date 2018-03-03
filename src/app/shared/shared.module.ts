@@ -4,6 +4,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from '@app/material.module';
 import { LoaderComponent } from './loader/loader.component';
+import { InstructorProfileComponent } from './instructor-profile/instructor-profile.component';
 
 @NgModule({
   imports: [
@@ -12,10 +13,12 @@ import { LoaderComponent } from './loader/loader.component';
     CommonModule
   ],
   declarations: [
-    LoaderComponent
+    LoaderComponent,
+    InstructorProfileComponent
   ],
   exports: [
-    LoaderComponent
+    LoaderComponent,
+    InstructorProfileComponent
   ]
 })
 export class SharedModule { }
