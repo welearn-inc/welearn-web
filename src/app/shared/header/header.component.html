@@ -11,14 +11,14 @@
                         </button>
                 </div>
 
-                <div    class="tool-item"> 
+                <div (click)="goHome()"    class="tool-item clickable"> 
                 <img src="assets/logo.png" 
                 alt="WeLearn"  
                 fxFlexAlign="center">
                 </div>
                 <div fxFlex   class="tool-item"> 
                               
-                                </div>
+                </div>
 
         </div>
 
@@ -29,7 +29,7 @@
         
             
 
-        <div   fxLayoutAlign="center center" class="tool-item">
+        <div  (click)="goHome()"  fxLayoutAlign="center center" class="tool-item clickable">
                 <img src="assets/logo.png" 
                  alt="WeLearn"  
                 fxFlexAlign="center">
@@ -53,11 +53,11 @@
 
     <div fxHide fxShow.gt-sm fxFlex  fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="2px">
             <div fxFlex class="tool-item">&nbsp;</div>
-        <div fxLayoutAlign="center center"  class="tool-item">Create a Course</div>
+        <div fxLayoutAlign="center center"  class="tool-item clickable" (click)="onCreateCourse()">Create a Course</div>
         <div fxLayoutAlign="center center"  class="tool-item">
              <i class="material-icons">shopping_cart</i> 
         </div>
-        <div fxLayoutAlign="center center"  class="tool-item">
+        <div fxLayoutAlign="center center"  class="tool-item pad-right">
                 <i class="material-icons md-48">person_pin</i> &nbsp;
               Scott 
         </div>

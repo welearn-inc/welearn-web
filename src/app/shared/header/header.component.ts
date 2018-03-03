@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ObservableMedia } from '@angular/flex-layout';
 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ import { ObservableMedia } from '@angular/flex-layout';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private media: ObservableMedia) { }
+  constructor(private media: ObservableMedia, private router: Router) { }
 
   ngOnInit() {
   }
@@ -23,5 +24,13 @@ export class HeaderComponent implements OnInit {
     return ans;
   }
 
+
+  onCreateCourse (){
+    this.router.navigate(['/course'], { replaceUrl: true });
+  }
+
+  goHome(){
+    this.router.navigate(['/home'], { replaceUrl: true });
+  }
 
 }
