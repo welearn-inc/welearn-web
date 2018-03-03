@@ -8,8 +8,7 @@ import { NewCourseComponent } from './new-course/new-course.component';
 import { ModuleInfoComponent } from './module-info/module-info.component';
 import { HeaderComponent } from './header/header.component';
 import { TranslateModule } from '@ngx-translate/core';
-
-
+import { InstructorProfileComponent } from './instructor-profile/instructor-profile.component';
 
 @NgModule({
   imports: [
@@ -22,13 +21,15 @@ import { TranslateModule } from '@ngx-translate/core';
     LoaderComponent,
     NewCourseComponent,
     ModuleInfoComponent,
-    HeaderComponent
+    HeaderComponent,
+    InstructorProfileComponent
   ],
   exports: [
     LoaderComponent,
     NewCourseComponent,
     ModuleInfoComponent,
-    HeaderComponent
+    HeaderComponent,
+    InstructorProfileComponent
   ]
 })
 export class SharedModule { }

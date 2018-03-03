@@ -7,17 +7,12 @@
                 <app-new-course></app-new-course>
             </mat-step>
             <mat-step>
-                <!-- <form [formGroup]="secondFormGroup"> -->
                 <ng-template matStepLabel>Instructor Information</ng-template>
-                <mat-form-field>
-                    <input matInput required>
-                    <!-- placeholder="Instructor name" -->
-                </mat-form-field>
-                <div>
+                <app-instructor-profile></app-instructor-profile>
+                <!-- <div>
                     <button mat-button matStepperPrevious>Back</button>
                     <button mat-button matStepperNext>Next</button>
-                </div>
-                <!-- </form> -->
+                </div> -->
             </mat-step>
             <mat-step>
                 <ng-template matStepLabel>Module Information</ng-template>
