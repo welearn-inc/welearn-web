@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ObservableMedia } from '@angular/flex-layout';
+
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private media: ObservableMedia) { }
 
   ngOnInit() {
   }
+
+
+  get isMobile(): boolean {
+    return this.media.isActive('xs') || this.media.isActive('sm');
+  }
+
 
 }

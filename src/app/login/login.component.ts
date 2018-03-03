@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.router.navigate(['/course'], { replaceUrl: true });
+    this.router.navigate(['/home'], { replaceUrl: true });
     // this.isLoading = true;
     // let credentials = {
     //   username: this.loginForm.controls.username.value,

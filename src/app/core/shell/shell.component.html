@@ -1,4 +1,9 @@
-<div fxFlex>
+<div fxFlex fxLayout="column" fxLayoutGap="2px" fxLayoutAlign="start none">
+    <app-header fxFlex="50px"></app-header>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  <!--
   <mat-sidenav-container fxFill>
     <mat-sidenav #sidenav [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile" [disableClose]="!isMobile"
                  ngClass.gt-sm="has-border">
@@ -45,6 +50,7 @@
       </nav>
     </mat-sidenav>
     <mat-sidenav-content>
+  
       <mat-toolbar color="primary" class="mat-elevation-z6">
         <button class="menu-button" mat-icon-button (click)="sidenav.toggle()" fxHide.gt-sm>
           <mat-icon>menu</mat-icon>
@@ -54,4 +60,5 @@
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
+-->
 </div>

@@ -13,6 +13,7 @@ import { AuthenticationGuard } from './authentication/authentication.guard';
 import { I18nService } from './i18n.service';
 import { HttpService } from './http/http.service';
 import { HttpCacheService } from './http/http-cache.service';
+import {SharedModule} from '../shared/shared.module'; 
 
 export function createHttpService(backend: ConnectionBackend,
                                   defaultOptions: RequestOptions,
@@ -27,7 +28,8 @@ export function createHttpService(backend: ConnectionBackend,
     TranslateModule,
     FlexLayoutModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   declarations: [
     ShellComponent
