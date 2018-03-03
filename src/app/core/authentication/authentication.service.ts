@@ -44,6 +44,13 @@ export class AuthenticationService {
     return this.backendService.post ("/rest-auth/login/", context);
   }
 
+  register(model: any): Observable<any> {
+    
+     
+    return this.backendService.post ("/rest-auth/registration/", model);
+  }
+
+
   /**
    * Logs out the user and clear credentials.
    * @return {Observable<boolean>} True if the user was logged out successfully.
@@ -91,6 +98,14 @@ export class AuthenticationService {
       sessionStorage.removeItem(credentialsKey);
       localStorage.removeItem(credentialsKey);
     }
+  }
+
+  isSocialEnabled (socialName: any){
+    return false;
+  }
+
+  isValidEmail (email: any){
+    return true;
   }
 
 }

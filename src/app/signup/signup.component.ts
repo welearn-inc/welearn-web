@@ -7,7 +7,7 @@ import { Logger, I18nService, AuthenticationService } from '@app/core';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 
-const log = new Logger('Login');
+const logger = new Logger('Signup');
 
 @Component({
   selector: 'sign-up',
@@ -18,9 +18,13 @@ export class SignUpComponent implements OnInit {
 
   version: string = environment.version;
   error: string;
-  loginForm: FormGroup;
+  signupForm: FormGroup;
   isLoading = false;
   showError: boolean = false;
+
+  enableGoogle: boolean = false;
+  enableFacebook: boolean = false;
+  enableLinkedin: boolean = false;
 
   constructor(private router: Router,
               private formBuilder: FormBuilder,
@@ -33,37 +37,65 @@ export class SignUpComponent implements OnInit {
     this.createForm();
   }
 
-  ngOnInit() { }
-
-  facebookLink(e: any) {
-     console.log("facebook link");
+  ngOnInit() { 
+    this.enableGoogle =  this.authenticationService.isSocialEnabled ("facebook");
+    this.enableFacebook =  this.authenticationService.isSocialEnabled ("google");
+    this.enableLinkedin =  this.authenticationService.isSocialEnabled ("linkedin");
   }
 
-  googleLink(e: any) {
-    console.log("gmail link");
+  facebookLink(e: any) { 
   }
 
-  linkedinLink(e: any) {
-    console.log("linkedin link");
+  googleLink(e: any) { 
   }
 
+  linkedinLink(e: any) { 
+  }
+
+   
   openSignIn() {
     this.router.navigate(['/login'], { replaceUrl: true });
   }
 
-  login() {
+  signup() {
+    if (!this.signupForm.valid){
+      return;
+    }
+    this.showError = false;
+    let credential = {
+      name: this.signupForm.controls.name.value,
+      username: this.signupForm.controls.username.value,
+      password1: this.signupForm.controls.password.value,
+      password2: this.signupForm.controls.confirmpassword.value
+    };
+
+    
+    if (credential.password1 != credential.password2 ){
+      this.showError = true;
+      this.error = "passwords do not match";
+      return;
+    }
+
+    if (!this.authenticationService.isValidEmail (credential.username)){
+      this.showError = true;
+      this.error = "Invalid email";
+      return;
+    }
+
     this.isLoading = true;
-    this.authenticationService.login(this.loginForm.value)
+
+    this.authenticationService.register (credential)
       .pipe(finalize(() => {
-        this.loginForm.markAsPristine();
+        this.signupForm.markAsPristine();
         this.isLoading = false;
       }))
       .subscribe(credentials => {
-        log.debug(`${credentials.username} successfully logged in`);
+        console.log ("Signup response" , credentials);
+        logger.debug(`${credentials.username} successfully logged in`);
         this.router.navigate(['/'], { replaceUrl: true });
       }, error => {
         this.showError = true;
-        log.debug(`Login error: ${error}`);
+        logger.debug(`Login error: ${error}`);
         this.error = error;
       });
   }
@@ -81,10 +113,11 @@ export class SignUpComponent implements OnInit {
   }
 
   private createForm() {
-    this.loginForm = this.formBuilder.group({
+    this.signupForm = this.formBuilder.group({
+      name: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', Validators.required],
-      remember: true
+      confirmpassword: ['', Validators.required]  
     });
   }
 

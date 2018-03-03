@@ -8,6 +8,8 @@ import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
  
 import {LoginContext}  from "@app/core";
+const log = new Logger('Login');
+
 
 @Component({
   selector: 'app-login',
@@ -21,6 +23,9 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isLoading = false;
   showError: boolean = false;
+  enableGoogle: boolean = false;
+  enableFacebook: boolean = false;
+  enableLinkedin: boolean = false;
 
   constructor(private router: Router,
               private formBuilder: FormBuilder,
@@ -33,18 +38,19 @@ export class LoginComponent implements OnInit {
     this.createForm();
   }
 
-  ngOnInit() { }
-
-  facebookLink(e: any) {
-     console.log("facebook link");
+  ngOnInit() { 
+    this.enableGoogle =  this.authenticationService.isSocialEnabled ("facebook");
+    this.enableFacebook =  this.authenticationService.isSocialEnabled ("google");
+    this.enableLinkedin =  this.authenticationService.isSocialEnabled ("linkedin");
   }
 
-  googleLink(e: any) {
-    console.log("gmail link");
+  facebookLink(e: any) { 
   }
 
-  linkedinLink(e: any) {
-    console.log("linkedin link");
+  googleLink(e: any) { 
+  }
+
+  linkedinLink(e: any) { 
   }
 
   openSignUp() {
@@ -63,8 +69,8 @@ export class LoginComponent implements OnInit {
         this.isLoading = false;
       }))
       .subscribe(res => {
-          console.log ("jere is rescponse from login ", res);
-          if (res.token && res.user && res.user.pk){
+        //  console.log ("here is rescponse from login ", res);
+          if (res.token){
             //it worked..
             this.authenticationService.updateAuthUser (res);
             this.router.navigate(['/'], { replaceUrl: true });

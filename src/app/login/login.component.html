@@ -23,12 +23,14 @@
                 </div>
                 <div fxLayout="column">
                     <mat-form-field>
-                        <b>Email address:</b>
-                        <input style="margin-top:0.9375em" type="text" matInput formControlName="username" />
+                        <label>Username:</label>
+                        <input type="text" matInput formControlName="username" />
                         <mat-error *ngIf="loginForm.controls.username.valid || loginForm.controls.username.untouched">
                             <span translate>Email address is required</span>
                         </mat-error>
                     </mat-form-field>
+
+
                     <mat-form-field>
                         <b>Password:</b>
                         <input style="margin-top:0.9375em" type="password" matInput formControlName="password" required/>
@@ -47,6 +49,11 @@
                     <h3 style="margin-top:10px;text-align:center;">Don't have an account? <a style="color:#007bff;" class="sign-up-link" (click)="openSignUp()">Sign Up</a></h3>
                 </div>
             </form>
+
+            <h3 flexLayoutAlign="center">Don't have an account?
+                <a class="sign-in-link" (click)="openSignUp()">Sign Up</a></h3>
+
+
         </mat-card>
     </div>
 </div>
